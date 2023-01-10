@@ -2,11 +2,14 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
-import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
-const Username = () => {
+const Username = (props) => {
+  const [isActive, setActive] = useState(false);
+  const toggleClass = () => {
+    setActive(!isActive);
+  };
   const exportRef = useRef();
   const router = useRouter();
   const { username } = router.query;
@@ -34,9 +37,9 @@ const Username = () => {
   };
 
   return (
-    <main className="w-100">
+    <main ref={exportRef} className="w-100">
       <div className="container">
-        <div ref={exportRef} className="card w-96 bg-base-100 drop-shadow-2xl">
+        <div className="card w-96 bg-base-100 drop-shadow-2xl">
           <figure className="w-96">
             <img src="/logo.png" alt="LeetCode Logo" />
           </figure>
@@ -45,9 +48,12 @@ const Username = () => {
               {" "}
               {new Date().toLocaleString("en-US", options)}
             </h1>
-            <p>
+            <p className={isActive ? "blurred" : null}>
               {" "}
-              <code>{username}</code> finished {data.length} problems
+              <span>
+                <code>{username}</code>
+              </span>{" "}
+              finished {data.length} problems
             </p>
             <div className="form-control">
               {data.map((entry, index) => (
@@ -73,7 +79,7 @@ const Username = () => {
             </div>
           </div>
         </div>
-        <div className="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+        <div className="container py-10 px-10 mx-0 inline-flex justify-evenly	 items-center">
           <button
             className="btn"
             onClick={() =>
@@ -84,6 +90,9 @@ const Username = () => {
             }
           >
             Export
+          </button>
+          <button className="btn btn-secondary" onClick={() => toggleClass()}>
+            {isActive ? "Show Username" : "Hide Username"}
           </button>
         </div>
       </div>
