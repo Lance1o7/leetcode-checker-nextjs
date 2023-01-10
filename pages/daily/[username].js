@@ -2,17 +2,13 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
   faEyeSlash,
-  faCoffee,
   faImage,
   faEye,
+  faCode,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-library.add(fab, faEyeSlash, faCoffee, faImage, faEye);
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -109,16 +105,13 @@ const Username = (props) => {
               );
             }}
           >
-            <FontAwesomeIcon icon="fa-solid fa-image" size="lg" />
+            <FontAwesomeIcon icon={faImage} size="lg" />
           </button>
           <button title="Toggle hiding username" onClick={() => toggleClass()}>
-            <FontAwesomeIcon
-              icon={!isActive ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
-              size="lg"
-            />
+            <FontAwesomeIcon icon={!isActive ? faEyeSlash : faEye} size="lg" />
           </button>
           <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
-            <FontAwesomeIcon icon="fa-brands fa-github" size="lg" />
+            <FontAwesomeIcon icon={faCode} size="lg" />
           </a>
         </div>
       </div>
