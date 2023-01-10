@@ -107,6 +107,7 @@ const Username = (props) => {
                   <label className="cursor-auto label" key={index}>
                     <span className="label-text font-bold">
                       <a
+                        className="problem"
                         href={`https://leetcode.com/problems/${entry.titleSlug}`}
                       >
                         {entry.title} &nbsp;

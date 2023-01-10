@@ -26,12 +26,19 @@ module.exports = {
       "lofi",
       "pastel",
       "fantasy",
-      "wireframe",
       "cmyk",
       "autumn",
       "acid",
       "lemonade",
       "winter",
+      {
+        wireframe: {
+          ...require("daisyui/src/colors/themes")["[data-theme=wireframe]"],
+          ".problem": {
+            "font-family": "Comic Sans MS, Comic Sans, cursive, Apple Garamond",
+          },
+        },
+      },
     ],
   },
 };
