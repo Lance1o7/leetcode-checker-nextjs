@@ -98,7 +98,7 @@ const Username = (props) => {
               )
             }
           >
-            Export
+            Export(Beta)
           </button>
           <button className="btn btn-secondary" onClick={() => toggleClass()}>
             {isActive ? "Show Username" : "Hide Username"}

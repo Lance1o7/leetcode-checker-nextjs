@@ -15,6 +15,7 @@ const downloadImage = (blob, fileName) => {
   fakeLink.click();
   document.body.removeChild(fakeLink);
   fakeLink.remove();
+  window.location.reload(false);
 };
 
 export default exportAsImage;
