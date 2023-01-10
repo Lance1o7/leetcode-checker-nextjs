@@ -35,7 +35,7 @@ module.exports = {
         wireframe: {
           ...require("daisyui/src/colors/themes")["[data-theme=wireframe]"],
           ".problem": {
-            "font-family": "Comic Sans MS, Comic Sans, cursive, Apple Garamond",
+            "font-family": "Comic Sans MS, Comic Sans, New York",
           },
         },
       },
