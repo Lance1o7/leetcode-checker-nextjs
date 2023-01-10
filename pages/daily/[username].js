@@ -2,6 +2,17 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+  faEyeSlash,
+  faCoffee,
+  faImage,
+  faEye,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+library.add(fab, faEyeSlash, faCoffee, faImage, faEye);
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -90,7 +101,7 @@ const Username = (props) => {
         </div>
         <div className="container py-10 px-10 mx-0 inline-flex justify-evenly	 items-center">
           <button
-            className="btn"
+            title="Export as image"
             onClick={() => {
               exportAsImage(
                 exportRef.current,
@@ -98,11 +109,17 @@ const Username = (props) => {
               );
             }}
           >
-            Export(Beta)
+            <FontAwesomeIcon icon="fa-solid fa-image" size="lg" />
           </button>
-          <button className="btn btn-secondary" onClick={() => toggleClass()}>
-            {isActive ? "Show Username" : "Hide Username"}
+          <button title="Toggle hiding username" onClick={() => toggleClass()}>
+            <FontAwesomeIcon
+              icon={!isActive ? "fa-solid fa-eye-slash" : "fa-solid fa-eye"}
+              size="lg"
+            />
           </button>
+          <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
+            <FontAwesomeIcon icon="fa-brands fa-github" size="lg" />
+          </a>
         </div>
       </div>
     </main>
