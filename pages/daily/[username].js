@@ -23,13 +23,13 @@ const Username = (props) => {
   );
   if (error)
     return (
-      <main className="content">
+      <main>
         <code>Loading...</code>
       </main>
     );
   if (!data)
     return (
-      <main className="content">
+      <main>
         <code>Loading...</code>
       </main>
     );
