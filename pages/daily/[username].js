@@ -37,9 +37,9 @@ const Username = (props) => {
   };
 
   return (
-    <main ref={exportRef} className="w-100">
+    <main className="w-100">
       <div className="container">
-        <div className="card w-96 bg-base-100 drop-shadow-2xl">
+        <div ref={exportRef} className="card w-96 bg-base-100 drop-shadow-2xl">
           <figure className="w-96">
             <img src="/logo.png" alt="LeetCode Logo" />
           </figure>
