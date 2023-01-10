@@ -2,12 +2,8 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
-import {
-  faEyeSlash,
-  faImage,
-  faEye,
-  faCode,
-} from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash, faImage, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -111,7 +107,7 @@ const Username = (props) => {
             <FontAwesomeIcon icon={!isActive ? faEyeSlash : faEye} size="lg" />
           </button>
           <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
-            <FontAwesomeIcon icon={faCode} size="lg" />
+            <FontAwesomeIcon icon={faGithub} size="lg" />
           </a>
         </div>
       </div>

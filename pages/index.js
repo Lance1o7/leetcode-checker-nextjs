@@ -1,8 +1,8 @@
 import React from "react";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Home() {
   const router = useRouter();
@@ -51,7 +51,7 @@ export default function Home() {
         </div>
         <div className="container py-10 px-10 mx-0 inline-flex justify-evenly	 items-center">
           <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
-            <FontAwesomeIcon icon={faCode} />
+            <FontAwesomeIcon icon={faGithub} />
           </a>
         </div>
       </div>
