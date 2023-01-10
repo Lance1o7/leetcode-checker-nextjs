@@ -36,10 +36,7 @@ const Username = () => {
   return (
     <main className="w-100">
       <div className="container">
-        <div
-          ref={exportRef}
-          className="card w-96 bg-base-100 drop-shadow-3xl hover:drop-shadow-4xl"
-        >
+        <div ref={exportRef} className="card w-96 bg-base-100 drop-shadow-2xl">
           <figure className="w-96">
             <img src="/logo.png" alt="LeetCode Logo" />
           </figure>
