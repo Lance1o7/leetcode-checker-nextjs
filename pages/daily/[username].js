@@ -41,7 +41,16 @@ const Username = (props) => {
       <div className="container">
         <div ref={exportRef} className="card w-96 bg-base-100 drop-shadow-2xl">
           <figure className="w-96">
-            <img src="/logo.png" alt="LeetCode Logo" />
+            <img
+              src="/light.png"
+              className="block dark:hidden"
+              alt="LeetCode Logo"
+            />
+            <img
+              src="/dark.png"
+              className="hidden dark:block"
+              alt="LeetCode Logo"
+            />
           </figure>
           <div className="card-body">
             <h1 className="card-title">
