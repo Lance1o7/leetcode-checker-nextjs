@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
-import exportAsImage from "./exportAsImage";
+import exportAsImage from "../../components/exportAsImage.js";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
