@@ -29,7 +29,7 @@ const Username = () => {
                 <figure className='w-96'><img src="/logo.png" alt="Shoes" /></figure>
                 <div className="card-body">
                     <h1 className="card-title"> {new Date().toLocaleString("en-US", options)}</h1>
-                    <p> <code>birdtosky</code> finished 6 problems</p>
+                    <p> <code>birdtosky</code> finished {data.length} problems</p>
                     <div className='form-control'>
                         {
                             data.map((entry, index) => (
