@@ -1,6 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LeetCode Checker
 
-## Getting Started
+> I had never used Next.js or React before. This project cost me about a few hours, and only God knows how it works.
+
+## Try it out
+
+Open `https://1eetcode.com/daily/YOUR_LEETCODE_ID` to generate a daily report.
+
+## Development
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 

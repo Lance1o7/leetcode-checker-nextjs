@@ -1,7 +1,6 @@
-
+import React from 'react'
 export default function Home() {
-
-  return (
-    <code> Usage: GET daily/username </code>
-  )
+  React.useEffect(() => {
+    window.location.replace('https://github.com/Lance1o7/leetcode-checker-nextjs')
+  }, [])
 }
