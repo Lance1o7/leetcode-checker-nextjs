@@ -91,12 +91,12 @@ const Username = (props) => {
         <div className="container py-10 px-10 mx-0 inline-flex justify-evenly	 items-center">
           <button
             className="btn"
-            onClick={() =>
+            onClick={() => {
               exportAsImage(
                 exportRef.current,
                 new Date().toLocaleString("zh-CN") + "_" + username
-              )
-            }
+              );
+            }}
           >
             Export(Beta)
           </button>
