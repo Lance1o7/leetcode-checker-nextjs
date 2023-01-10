@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
+import Image from "next/image";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -40,7 +41,7 @@ const Username = () => {
           className="card w-96 bg-base-100 drop-shadow-3xl hover:drop-shadow-4xl"
         >
           <figure className="w-96">
-            <img src="/logo.png" alt="Shoes" />
+            <img src="/logo.png" alt="LeetCode Logo" />
           </figure>
           <div className="card-body">
             <h1 className="card-title">
