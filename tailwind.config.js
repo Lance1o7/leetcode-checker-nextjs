@@ -16,4 +16,22 @@ module.exports = {
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: [
+      "light",
+      "bumblebee",
+      "emerald",
+      "corporate",
+      "garden",
+      "lofi",
+      "pastel",
+      "fantasy",
+      "wireframe",
+      "cmyk",
+      "autumn",
+      "acid",
+      "lemonade",
+      "winter",
+    ],
+  },
 };

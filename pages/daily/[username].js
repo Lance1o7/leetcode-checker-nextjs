@@ -2,17 +2,47 @@ import { useRouter } from "next/router";
 import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import exportAsImage from "../../components/exportAsImage.js";
-import { faEyeSlash, faImage, faEye } from "@fortawesome/free-solid-svg-icons";
+import {
+  faEyeSlash,
+  faImage,
+  faEye,
+  faPaintRoller,
+  faPaintBrush,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Analytics } from "@vercel/analytics/react";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
+const themes = [
+  "light",
+  "bumblebee",
+  "emerald",
+  "corporate",
+  "lofi",
+  "pastel",
+  "fantasy",
+  "wireframe",
+  "cmyk",
+  "lemonade",
+  "winter",
+];
 
+const checkboxthemes = ["checkbox-primary"];
 const Username = (props) => {
   const [isActive, setActive] = useState(false);
+  const [themeID, setTheme] = useState(0);
+  const [checkboxID, setCheckbox] = useState(0);
   const toggleClass = () => {
     setActive(!isActive);
+  };
+  let n = themes.length;
+  const toggleTheme = () => {
+    setTheme((themeID + 1) % n);
+  };
+  let checkbox_n = checkboxthemes.length;
+  const toggleCheckbox = () => {
+    setCheckbox((checkboxID + 1) % checkbox_n);
   };
   const exportRef = useRef();
   const router = useRouter();
@@ -42,7 +72,7 @@ const Username = (props) => {
 
   return (
     <>
-      <main className="w-100">
+      <main className="w-100" data-theme={themes[themeID]}>
         <div className="container">
           <div
             ref={exportRef}
@@ -89,7 +119,10 @@ const Username = (props) => {
                       type="checkbox"
                       checked="checked"
                       readOnly={true}
-                      className="object-none object-right checkbox checkbox-success checkbox-xs"
+                      className={
+                        "object-none object-right checkbox checkbox-xs " +
+                        checkboxthemes[checkboxID]
+                      }
                     />
                   </label>
                 ))}
@@ -117,6 +150,18 @@ const Username = (props) => {
                 size="lg"
               />
             </button>
+            <button
+              title="Toggle hiding username"
+              onClick={() => toggleTheme()}
+            >
+              <FontAwesomeIcon icon={faPaintRoller} size="lg" />
+            </button>
+            {/* <button
+              title="Toggle hiding username"
+              onClick={() => toggleCheckbox()}
+            >
+              <FontAwesomeIcon icon={faPaintBrush} size="lg" />
+            </button> */}
             <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
               <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
