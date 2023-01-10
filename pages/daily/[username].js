@@ -20,7 +20,7 @@ const Username = (props) => {
   if (error)
     return (
       <main className="content">
-        <code>Failed to load. Please check your username</code>
+        <code>Loading...</code>
       </main>
     );
   if (!data)
