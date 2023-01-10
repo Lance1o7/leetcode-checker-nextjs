@@ -31,8 +31,11 @@ export default function Home() {
             <h1 className="card-title flex flex-row justify-center items-center">
               Please Input your LeetCode ID
             </h1>
+            <p className="text-xs	flex flex-row justify-center items-center">
+              Data will be updated every 1 hour.
+            </p>
             <form
-              className="form-control w-full max-w-xs"
+              className="form-control inline-flex justify-center"
               onSubmit={handleSubmit}
             >
               <input
@@ -41,7 +44,7 @@ export default function Home() {
                 onChange={(e) => {
                   setRoute(e.target.value);
                 }}
-                className="input input-bordered w-full max-w-xs mt-3"
+                className="input input-bordered max-w-xs mt-3"
               />
               <button type="submit" className="btn mt-5">
                 Submit
@@ -49,7 +52,7 @@ export default function Home() {
             </form>
           </div>
         </div>
-        <div className="container py-10 px-10 mx-0 inline-flex justify-evenly	 items-center">
+        <div className="container py-10 px-10 mx-0 flex justify-evenly items-center">
           <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
             <FontAwesomeIcon icon={faGithub} />
           </a>
