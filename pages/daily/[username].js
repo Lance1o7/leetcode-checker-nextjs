@@ -91,10 +91,7 @@ const Username = (props) => {
               />
             </figure>
             <div className="card-body">
-              <h1 className="card-title">
-                {" "}
-                {new Date().toLocaleString("en-US", options)}
-              </h1>
+              <h1 className="card-title">During the past 24 hours,</h1>
               <p className={isActive ? "blurred" : null}>
                 {" "}
                 <span>
@@ -127,6 +124,11 @@ const Username = (props) => {
                     />
                   </label>
                 ))}
+              </div>
+              <div className="flex justify-center mt-2">
+                <code className="text-sm font-thin text-gray-300 uppercase">
+                  {new Date().toLocaleString("en-US")}
+                </code>
               </div>
             </div>
           </div>
