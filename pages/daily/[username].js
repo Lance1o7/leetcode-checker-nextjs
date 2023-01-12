@@ -33,6 +33,13 @@ const Username = (props) => {
   const [isActive, setActive] = useState(false);
   const [themeID, setTheme] = useState(0);
   const [checkboxID, setCheckbox] = useState(0);
+  let time = new Date().toLocaleString();
+  let [currentTime, changeTime] = React.useState(time);
+  function checkTime() {
+    time = new Date().toLocaleString();
+    changeTime(time);
+  }
+  setInterval(checkTime, 1000);
   const toggleClass = () => {
     setActive(!isActive);
   };
@@ -127,7 +134,7 @@ const Username = (props) => {
               </div>
               <div className="flex justify-center mt-2">
                 <code className="text-sm font-thin text-gray-300 uppercase">
-                  {new Date().toLocaleString("en-US")}
+                  {currentTime}
                 </code>
               </div>
             </div>
