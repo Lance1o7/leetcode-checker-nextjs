@@ -15,7 +15,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Analytics } from "@vercel/analytics/react";
 let DEBUG = false;
-BASE_URL = DEBUG ? "http://127.0.0.1:3000/" : "https://1eetcode.com/";
+let BASE_URL = DEBUG ? "http://127.0.0.1:3000/" : "https://1eetcode.com/";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const themes = [
   "light",
