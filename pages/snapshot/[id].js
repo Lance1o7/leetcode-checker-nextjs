@@ -9,13 +9,13 @@ import {
   faPaintRoller,
   faPaintBrush,
   faShare,
-  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Analytics } from "@vercel/analytics/react";
 let DEBUG = false;
 BASE_URL = DEBUG ? "http://127.0.0.1:3000/" : "https://1eetcode.com/";
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const themes = [
   "light",
@@ -34,16 +34,15 @@ const themes = [
 const checkboxthemes = ["checkbox-primary"];
 const Username = (props) => {
   const [isActive, setActive] = useState(false);
-  const [isLoading, setLoading] = useState(true);
   const [themeID, setTheme] = useState(0);
   const [checkboxID, setCheckbox] = useState(0);
   let time = new Date().toLocaleString();
-  let [currentTime, changeTime] = React.useState(time);
+  // let [currentTime, changeTime] = React.useState(time);
   function checkTime() {
     time = new Date().toLocaleString();
     changeTime(time);
   }
-  setInterval(checkTime, 1000);
+  //setInterval(checkTime, 1000);
   const toggleClass = () => {
     setActive(!isActive);
   };
@@ -57,9 +56,9 @@ const Username = (props) => {
   };
   const exportRef = useRef();
   const router = useRouter();
-  const { username } = router.query;
+  const { id } = router.query;
   const { data, error } = useSWR(
-    "https://leetcode-checker.onrender.com/api/day/" + username,
+    "https://leetcode-checker.onrender.com/api/snapshot/" + id,
     fetcher
   );
   if (error)
@@ -74,29 +73,17 @@ const Username = (props) => {
         <code>Loading...</code>
       </main>
     );
-
+  const username = data["username"];
+  const timestamp = data["timestamp"];
+  const snapshot_data = data["data"];
+  var currentTime = new Date(timestamp * 1000).toLocaleString();
   const options = {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  const generate_snapshot = () => {
-    setLoading(!isLoading);
-    fetch(
-      "https://leetcode-checker.onrender.com/api/generate_snapshot/" + username
-    )
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data["id"]);
-        let new_url = BASE_URL + "snapshot/" + data["id"];
-        navigator.clipboard.writeText(new_url);
-        router.push(new_url);
-        //window.location.href = "https://1eetcode.com/snapshot/" + data["id"];
-      });
-  };
+
   return (
     <>
       <main className="w-100" data-theme={themes[themeID]}>
@@ -124,10 +111,10 @@ const Username = (props) => {
                 <span>
                   <code>{username}</code>
                 </span>{" "}
-                finished {data.length} problems
+                finished {snapshot_data.length} problems
               </p>
               <div className="form-control">
-                {data.map((entry, index) => (
+                {snapshot_data.map((entry, index) => (
                   <label className="cursor-auto label" key={index}>
                     <span className="label-text font-bold">
                       <a
@@ -154,7 +141,7 @@ const Username = (props) => {
               </div>
               <div className="flex justify-center mt-2">
                 <code className="text-sm font-thin text-gray-300 uppercase">
-                  {currentTime}
+                  {"Snapshot at " + currentTime}
                 </code>
               </div>
             </div>
@@ -195,16 +182,6 @@ const Username = (props) => {
             <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
               <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
-            <button
-              title="Generate snapshot"
-              onClick={() => generate_snapshot()}
-            >
-              <FontAwesomeIcon
-                icon={isLoading ? faShare : faSpinner}
-                className={isLoading ? "" : "fa-spin"}
-                size="lg"
-              />
-            </button>
           </div>
         </div>
       </main>
