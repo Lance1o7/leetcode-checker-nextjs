@@ -18,7 +18,6 @@ let DEBUG = false;
 let BASE_URL = DEBUG ? "http://127.0.0.1:3000/" : "https://1eetcode.com/";
 let API_URL =
   "https://lykcwywuhmezltvcgd3f3ug3ki0iydrv.lambda-url.us-west-1.on.aws/";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const themes = [
   "light",
   "bumblebee",
