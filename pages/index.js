@@ -33,6 +33,9 @@ export default function Home() {
               <h1 className="card-title flex flex-row justify-center items-center">
                 Please Input your LeetCode ID
               </h1>
+              <p className="text-xs	flex flex-row justify-center items-center">
+                Only LCUS is supported.
+              </p>
               <form
                 className="form-control inline-flex justify-center"
                 onSubmit={handleSubmit}
