@@ -15,7 +15,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Analytics } from "@vercel/analytics/react";
 let DEBUG = false;
 let BASE_URL = DEBUG ? "http://127.0.0.1:3000/" : "https://1eetcode.com/";
-
+let API_URL =
+  "https://lykcwywuhmezltvcgd3f3ug3ki0iydrv.lambda-url.us-west-1.on.aws/";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const themes = [
   "light",
@@ -57,10 +58,7 @@ const Username = (props) => {
   const exportRef = useRef();
   const router = useRouter();
   const { id } = router.query;
-  const { data, error } = useSWR(
-    "https://leetcode-checker.onrender.com/api/snapshot/" + id,
-    fetcher
-  );
+  const { data, error } = useSWR(API_URL + "api/snapshot/" + id, fetcher);
   if (error)
     return (
       <main>
