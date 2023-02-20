@@ -33,9 +33,6 @@ export default function Home() {
               <h1 className="card-title flex flex-row justify-center items-center">
                 Please Input your LeetCode ID
               </h1>
-              <p className="text-xs	flex flex-row justify-center items-center">
-                Data will be updated every 1 hour.
-              </p>
               <form
                 className="form-control inline-flex justify-center"
                 onSubmit={handleSubmit}
