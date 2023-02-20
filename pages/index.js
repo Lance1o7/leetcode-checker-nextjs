@@ -53,7 +53,7 @@ export default function Home() {
           </div>
           <div className="container py-10 px-10 mx-0 flex justify-evenly items-center">
             <a href="https://github.com/Lance1o7/leetcode-checker-nextjs">
-              <FontAwesomeIcon icon={faGithub} />
+              <FontAwesomeIcon icon={faGithub} size="lg" />
             </a>
           </div>
         </div>
