@@ -7,14 +7,17 @@
 
 [1eetcode.com](https://1eetcode.com)
 
+## Architecture
+![Project Arch](https://user-images.githubusercontent.com/10292888/220497150-3677851c-8fb2-44c4-8732-227e2a1286ea.png)
+
 ## Milestones
 
 - [x] Basic features
   - [x] Problem difficulty
 - [x] Export as image
 - [x] Hide username option
-- [ ] Eliminate backend service
-  - [ ] MongoDB Atlas
+- [x] Eliminate backend service
+  - [x] MongoDB Atlas
 
 ## Development
 
