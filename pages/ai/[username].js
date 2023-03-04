@@ -5,11 +5,12 @@ import ReactMarkdown from "react-markdown";
 
 let API_URL =
   "https://lykcwywuhmezltvcgd3f3ug3ki0iydrv.lambda-url.us-west-1.on.aws/";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const Username = (props) => {
+
+const AI = (props) => {
   const exportRef = useRef();
   const router = useRouter();
   const { username } = router.query;
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error } = useSWR(API_URL + "api/ai/" + username, fetcher);
   if (error)
     return (
@@ -33,4 +34,4 @@ const Username = (props) => {
     </main>
   );
 };
-export default Username;
+export default AI;
