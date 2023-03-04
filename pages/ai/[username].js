@@ -3,7 +3,8 @@ import React, { useRef, useEffect, useState } from "react";
 import useSWR from "swr";
 import ReactMarkdown from "react-markdown";
 
-let API_URL = "https://leetcode-checker.onrender.com/";
+let API_URL =
+  "https://lykcwywuhmezltvcgd3f3ug3ki0iydrv.lambda-url.us-west-1.on.aws/";
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const Username = (props) => {
   const exportRef = useRef();
