@@ -7,7 +7,7 @@ import {
   faImage,
   faEye,
   faPaintRoller,
-  faPaintBrush,
+  faRobot,
   faShare,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
@@ -87,12 +87,15 @@ const Username = (props) => {
         return response.json();
       })
       .then((data) => {
-        console.log(data["id"]);
         let new_url = BASE_URL + "snapshot/" + data["id"];
         navigator.clipboard.writeText(new_url);
         router.push(new_url);
         //window.location.href = "https://1eetcode.com/snapshot/" + data["id"];
       });
+  };
+  const generate_summary = () => {
+    let new_url = BASE_URL + "ai/" + username;
+    router.push(new_url);
   };
   return (
     <>
@@ -201,6 +204,9 @@ const Username = (props) => {
                 className={isLoading ? "" : "fa-spin"}
                 size="lg"
               />
+            </button>
+            <button title="AI Summary" onClick={() => generate_summary()}>
+              <FontAwesomeIcon icon={faRobot} size="lg" />
             </button>
           </div>
         </div>
