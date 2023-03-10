@@ -205,9 +205,16 @@ const Username = (props) => {
                 size="lg"
               />
             </button>
-            <button title="AI Summary" onClick={() => generate_summary()}>
+            {/* <button title="AI Summary" onClick={() => generate_summary()}>
               <FontAwesomeIcon icon={faRobot} size="lg" />
-            </button>
+            </button> */}
+            <a href="https://beta.1eetcode.com/">
+              <FontAwesomeIcon
+                icon={faRobot}
+                size="lg"
+                title="Try ChatGPT (Beta)"
+              />
+            </a>
           </div>
         </div>
       </main>
